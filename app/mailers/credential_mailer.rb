@@ -1,4 +1,5 @@
 class CredentialMailer < ActionMailer::Base
+  default from: 'support@watchful-eye.herokuapp.com'
 
   def reset_password(credential)
     @credential = credential
