@@ -5,4 +5,6 @@ class Employee < ActiveRecord::Base
 
   delegate :email, :confirmed?, to: :credential
 
+  validates :name, presence: true, length: { in: 1..255 }
+
 end
