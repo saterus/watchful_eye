@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     get :confirm, on: :collection
   end
 
-  root to: 'time_entries#index'
+  root to: redirect('/time_entries')
 
 end

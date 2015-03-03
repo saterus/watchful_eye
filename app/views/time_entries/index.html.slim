@@ -1,4 +1,8 @@
-h1 Listing time_entries
+h1 = @date.to_s(:long)
+
+h3 = link_to 'Yesterday', time_entries_path(date: @date.yesterday.iso8601)
+- unless @date == Date.current
+  h3 = link_to 'Tomorrow', time_entries_path(date: @date.tomorrow.iso8601)
 
 table
   thead
@@ -28,4 +32,4 @@ table
 
 br
 
-= link_to 'New Time entry', new_time_entry_path
+= link_to 'New Time entry', new_time_entry_path(date: @date)

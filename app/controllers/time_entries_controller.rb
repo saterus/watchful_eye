@@ -1,15 +1,17 @@
 class TimeEntriesController < ApplicationController
 
   before_action :set_time_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_date
 
   def index
-    @time_entries = current_employee.time_entries.all
+    @time_entries = current_employee.time_entries.where(date: @date).all
   end
 
   def show
   end
 
   def new
+    params[:date] = @date.to_date.iso8601
     @time_entry = current_employee.time_entries.build
   end
 
@@ -40,6 +42,20 @@ class TimeEntriesController < ApplicationController
   end
 
   private
+
+  def set_date
+    @date = if @time_entry
+              @time_entry.date
+            elsif params[:date].present?
+              begin
+                Date.parse(params[:date])
+              rescue ArgumentError => ex
+                Date.current if ex.message =~ /invalid date/
+              end
+            else
+              Date.current
+            end
+  end
 
   def set_time_entry
     @time_entry = current_employee.time_entries.find(params[:id])
