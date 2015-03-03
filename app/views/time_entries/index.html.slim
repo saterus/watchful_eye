@@ -24,6 +24,11 @@ table
         td = time_entry.duration_in_minutes
         td = time_entry.task.name
         td = time_entry.project.name
+        td
+          - if time_entry.active_timer
+            = link_to 'Stop', timer_path(time_entry.active_timer), method: :patch
+          - else
+            = link_to 'Start', timers_path(time_entry_id: time_entry.id), method: :create
         td = link_to 'Edit', edit_time_entry_path(time_entry)
 
 br

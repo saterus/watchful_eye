@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303175455) do
+ActiveRecord::Schema.define(version: 20150303200226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20150303175455) do
     t.integer  "employee_id",                     null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "timers", force: :cascade do |t|
+    t.datetime "start_time",    default: '2015-03-03 20:03:24', null: false
+    t.datetime "end_time"
+    t.integer  "time_entry_id",                                 null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
 end
