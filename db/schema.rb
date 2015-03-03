@@ -16,6 +16,24 @@ ActiveRecord::Schema.define(version: 20150303152732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "credentials", force: :cascade do |t|
+    t.string   "email",                        null: false
+    t.string   "password_digest", default: "", null: false
+    t.datetime "confirmed_at"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "credentials", ["email"], name: "index_credentials_on_email", unique: true, using: :btree
+  add_index "credentials", ["employee_id"], name: "index_credentials_on_employee_id", using: :btree
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false

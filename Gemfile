@@ -4,6 +4,7 @@ ruby '2.2.0'
 gem 'rails', '~> 4.2.0'
 
 gem 'awesome_print'
+gem 'bcrypt'
 gem 'bourbon'
 gem 'jquery-rails'
 gem 'pg'
