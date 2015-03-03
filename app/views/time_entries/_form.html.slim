@@ -1,0 +1,29 @@
+= form_for @time_entry do |f|
+  - if @time_entry.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@time_entry.errors.count, "error")} prohibited this time_entry from being saved:"
+      ul
+        - @time_entry.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :date
+    = f.date_select :date
+
+  .field
+    = f.label :project_id
+    = f.collection_select(:project_id, Project.all, :id, :name, prompt: true)
+
+  .field
+    = f.label :task_id
+    = f.collection_select(:task_id, Task.all, :id, :name, prompt: true)
+
+  .field
+    = f.label :notes
+    = f.text_area :notes
+
+  .field
+    = f.label :duration_in_minutes
+    = f.number_field :duration_in_minutes, min: 0
+
+  .actions = f.submit

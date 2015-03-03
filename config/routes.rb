@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :projects
   resources :tasks
+  resources :time_entries
 
   get :sign_in, to: 'sessions#new'
   get :sign_out, to: 'sessions#destroy'
@@ -14,6 +15,6 @@ Rails.application.routes.draw do
     get :confirm, on: :collection
   end
 
-  root to: 'projects#index'
+  root to: 'time_entries#index'
 
 end
