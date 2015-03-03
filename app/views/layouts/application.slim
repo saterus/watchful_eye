@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title | WatchfulEye
+    = stylesheet_link_tag    'application', media: 'all'
+    = csrf_meta_tags
+  body
+
+    header
+      = render partial: 'layouts/header'
+
+    main
+      = yield
+
+    footer
+      = javascript_include_tag 'application'
+

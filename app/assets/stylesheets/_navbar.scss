@@ -1,0 +1,35 @@
+header {
+  @include position(relative);
+  height: $header-height;
+  background-color: #ddd;
+  font-size: 1.25rem;
+}
+
+.main-nav {
+  max-width: $max-page-width;
+  margin: 0 auto;
+  @include position(absolute, 0px 0px null 0px);
+
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    @include display(flex);
+    @include justify-content(space-between);
+  }
+
+  li {
+    padding: 2rem 1rem;
+    @include flex(0 1 auto);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+}
