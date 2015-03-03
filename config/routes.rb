@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :projects
+  resources :tasks
+
   get :sign_in, to: 'sessions#new'
   get :sign_out, to: 'sessions#destroy'
   get :sign_up, to: 'registrations#new'
@@ -10,8 +13,6 @@ Rails.application.routes.draw do
   resources :registrations, only: [:create] do
     get :confirm, on: :collection
   end
-
-  resources :projects
 
   root to: 'projects#index'
 

@@ -2,6 +2,7 @@ nav.main-nav
   ul
     li.logo = link_to 'Watchful Eye', root_path
     li = link_to 'Projects', projects_path
+    li = link_to 'Tasks', tasks_path
     - if signed_in?
       li = link_to current_employee.name, forgot_password_path
       li = link_to 'Sign Out', sign_out_path
