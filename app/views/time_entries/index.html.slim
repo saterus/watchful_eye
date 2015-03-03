@@ -12,7 +12,6 @@ table
       th Duration in minutes
       th Task
       th Project
-      th Employee
       th
       th
       th
@@ -23,12 +22,9 @@ table
         td = time_entry.notes
         td = time_entry.date
         td = time_entry.duration_in_minutes
-        td = time_entry.task_id
-        td = time_entry.project_id
-        td = time_entry.employee_id
-        td = link_to 'Show', time_entry
+        td = time_entry.task.name
+        td = time_entry.project.name
         td = link_to 'Edit', edit_time_entry_path(time_entry)
-        td = link_to 'Destroy', time_entry, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

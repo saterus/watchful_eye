@@ -4,7 +4,7 @@ class TimeEntriesController < ApplicationController
   before_action :set_date
 
   def index
-    @time_entries = current_employee.time_entries.where(date: @date).all
+    @time_entries = current_employee.time_entries.where(date: @date).includes(:task, :project).all
   end
 
   def show
