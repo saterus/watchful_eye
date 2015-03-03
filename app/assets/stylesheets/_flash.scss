@@ -1,0 +1,12 @@
+.flash-message {
+  padding: 1rem 20px;
+  margin: 2rem 10%;
+
+  &.alert {
+    background-color: hsl(0, 80%, 90%);
+  }
+
+  &.notice {
+    background-color: hsl(120, 25%, 75%);
+  }
+}

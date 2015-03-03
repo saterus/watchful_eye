@@ -1,0 +1,5 @@
+- if flash.any?
+  .flash
+    - flash.each do |flash_key, message|
+      .flash-message(class=flash_key) = message
+
