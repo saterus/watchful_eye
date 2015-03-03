@@ -28,7 +28,10 @@ table
           - if time_entry.active_timer
             = link_to 'Stop', timer_path(time_entry.active_timer), method: :patch
           - else
-            = link_to 'Start', timers_path(time_entry_id: time_entry.id), method: :create
+            - if @date == Date.current
+              = link_to 'Start', timers_path(time_entry_id: time_entry.id), method: :create
+            - else
+              | -
         td = link_to 'Edit', edit_time_entry_path(time_entry)
 
 br
